@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block title %}Your Appointments - Skintellect{% endblock %}
+{% block content %}
+<div class="appointments-container">
+  <div class="appointments-box">
+    <h1>Your Appointments</h1>
+    <div id="appointmentsContainer"></div>
+  </div>
+</div>
+<script>
+    var appointments = {{ all_appointments | tojson }};
+    var container = document.getElementById("appointmentsContainer");
+
+    if (appointments.length === 0) {
+        container.innerHTML = `<p class="text-gray-500 text-center">No appointments found.</p>`;
+    } else {
+        appointments.forEach(function(appointment) {
+            var appointmentDiv = document.createElement("div");
+            appointmentDiv.classList.add("appointment-card");
+
+            var status = appointment[8] == 0 ? "Pending" : "Accepted";
+            var content = `
+                <strong>Name:</strong> ${appointment[1]}<br>
+                <strong>Email:</strong> ${appointment[2]}<br>
+                <strong>Date:</strong> ${appointment[3]}<br>
+                <strong>Skin type:</strong> ${appointment[4]}<br>
+                <strong>Status:</strong> ${status}<br>
+            `;
+            appointmentDiv.innerHTML = content;
+
+            var deleteIcon = document.createElement("i");
+            deleteIcon.classList.add("fa-solid", "fa-trash");
+            deleteIcon.onclick = function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/delete_user_request", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        window.location.reload();
+                    }
+                };
+                xhr.send("id=" + appointment[0]);
+            };
+            appointmentDiv.appendChild(deleteIcon);
+            container.appendChild(appointmentDiv);
+        });
+    }
+</script>
+{% endblock %}

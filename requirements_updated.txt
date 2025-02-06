@@ -1,0 +1,10 @@
+flask
+pandas
+numpy
+opencv-python
+joblib
+werkzeug
+roboflow
+supervision
+inference-sdk
+sqlite3

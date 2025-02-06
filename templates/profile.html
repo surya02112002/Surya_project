@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}Profile - Skintellect{% endblock %}
+{% block content %}
+<div class="profile-container">
+  <div class="profile-box">
+    <img src="{{ url_for('static', filename='assets/user.png') }}" alt="User">
+    <h2>{{ name }}</h2>
+    <div class="profile-info">
+      <p><strong>Age:</strong> {{ age }}</p>
+      <p><strong>Gender:</strong> {{ gender }}</p>
+      <p><strong>Concerns:</strong> {{ concerns }}</p>
+      <p><strong>Skin Type:</strong> {{ skin_type_details }}</p>
+    </div>
+    <a href="/bookappointment" class="btn">Book Appointment</a>
+  </div>
+</div>
+{% endblock %}

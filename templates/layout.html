@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SkInsight{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <style>
+        .nav-shadow {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-purple-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white nav-shadow fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo">
+                        <span class="ml-2 text-xl font-bold gradient-text">SkInsight</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{{ url_for('predict') }}" class="text-gray-600 hover:text-indigo-600 transition flex items-center">
+                        <i class="fas fa-camera mr-2"></i>Face Analysis
+                    </a>
+                    <a href="{{ url_for('bookappointment') }}" class="text-gray-600 hover:text-indigo-600 transition flex items-center">
+                        <i class="fas fa-calendar-check mr-2"></i>Book Appointment
+                    </a>
+                    <a href="{{ url_for('userappoint') }}" class="text-gray-600 hover:text-indigo-600 transition flex items-center">
+                        <i class="fas fa-list-ul mr-2"></i>Appointments

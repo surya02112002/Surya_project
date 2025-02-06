@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background: white;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    align-items: center;
+}
+.nav-brand img {
+    height: 50px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+.nav-links li {
+    margin-left: 20px;
+}
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+    transition: 0.3s;
+}
+.nav-links a:hover {
+    color: #d72638;
+}
+
+/* Authentication Pages */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+}
+.auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+.auth-box h2 {
+    margin-bottom: 15px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #055113;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #033f0c;
+}

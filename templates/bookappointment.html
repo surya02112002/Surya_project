@@ -1,35 +1,36 @@
 {% extends 'layout.html' %}
 
-{% block title %}Book Appointment - Skintellect{% endblock %}
-
 {% block content %}
-<div class="h-screen w-full relative flex flex-col items-center justify-center">
-  <img src="{{ url_for('static', filename='assets/bg.webp') }}" alt="Background" class="absolute top-0 left-0 w-full h-full object-cover brightness-75 z-0">
-  <div class="h-auto w-[50vw] bg-white bg-opacity-90 rounded-xl p-8 backdrop-blur-md flex flex-col z-20 shadow-2xl transform transition-all duration-300 hover:scale-105">
-    <div class="text-center mb-6">
-      <h1 class="text-5xl font-bold font-serif text-gray-800 drop-shadow-md">Book an Appointment</h1>
-      <p class="text-lg text-gray-600 mt-2">Get personalized skincare consultation from our experts</p>
-    </div>
-    <form action="/appointment" method="POST" class="flex flex-col gap-6">
-      <div class="grid grid-cols-2 gap-6">
-        <input type="text" name="name" placeholder="Full Name" class="h-12 p-4 rounded-lg border border-gray-300" required>
-        <input type="email" name="email" placeholder="Email Address" class="h-12 p-4 rounded-lg border border-gray-300" required>
-      </div>
-      <div class="grid grid-cols-2 gap-6">
-        <input type="date" name="date" class="h-12 p-4 rounded-lg border border-gray-300" required>
-        <input type="text" name="skin" placeholder="Skin Type" class="h-12 p-4 rounded-lg border border-gray-300" required>
-      </div>
-      <div class="grid grid-cols-2 gap-6">
-        <input type="tel" name="phone" placeholder="Phone Number" class="h-12 p-4 rounded-lg border border-gray-300" required>
-        <input type="number" name="age" placeholder="Age" class="h-12 p-4 rounded-lg border border-gray-300" required>
-      </div>
-      <div class="flex flex-col">
-        <textarea name="address" placeholder="Describe Your Concern" rows="4" class="w-full h-32 p-4 rounded-lg border border-gray-300" required></textarea>
-      </div>
-      <div class="flex justify-center">
-        <button class="h-12 w-48 text-lg rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
+
+ <div class="min-h-screen w-full relative flex flex-col items-center justify-center px-4 py-8">
+    <!-- <img src="../static/assets/bg5.webp" alt="" class="absolute top-0 left-0 w-full h-full object-cover brightness-[90%] z-0"> -->
+    
+    <div class="max-w-screen-lg w-full bg-white bg-opacity-80 rounded-xl p-8 backdrop-blur-md flex flex-col z-20">
+        <div class="h-[10vh] w-full flex justify-center items-center">
+            <h1 class="text-4xl md:text-6xl font-serif text-center">Make an Appointment</h1>
+        </div>
+        <div class="w-full flex justify-center">
+            <form action="/appointment" method="POST" class="w-full flex flex-col gap-6">
+                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10 mt-6">
+                    <input type="text" name="name" placeholder="Enter Your Full Name" class="h-12 w-full md:w-96 p-4 outline-none border-2 border-gray-600" required>
+                    <input type="text" name="email" placeholder="Enter your Email address" class="h-12 w-full md:w-96 p-4 outline-none border-2 border-gray-600" required>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10">
+                    <input type="date" name="date" placeholder="mm/dd/yy" class="h-12 w-full md:w-96 p-4 outline-none border-2 border-gray-600" required>
+                    <input type="text" name="skin" placeholder="Skin Type" class="h-12 w-full md:w-96 p-4 outline-none border-2 border-gray-600" required>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10">
+                    <input type="text" name="phone" placeholder="Phone No." class="h-12 w-full md:w-96 p-4 outline-none border-2 border-gray-600" required>
+                    <input type="text" name="age" placeholder="Enter your Age" class="h-12 w-full md:w-96 p-4 outline-none border-2 border-gray-600" required>
+                </div>
+                <div class="w-full">
+                    <input type="text" name="address" placeholder="Enter Reason" class="h-12 w-full p-4 outline-none border-2 border-gray-600" required>
+                </div>
+                <div class="flex justify-center">
+                    <button class="h-12 w-40 text-lg rounded-md bg-green-400 hover:bg-green-600 text-white font-serif p-4">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>  
 {% endblock %}

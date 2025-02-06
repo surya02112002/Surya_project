@@ -3,71 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkInsight - Login</title>
+    <title>Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, rgba(99,102,241,0.95) 0%, rgba(168,85,247,0.95) 100%);
-        }
-        .form-container {
-            backdrop-filter: blur(16px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .input-group:focus-within i {
-            color: #6366f1;
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        body {
+            background-image: url('../static/assets/bg5.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
-    <div class="w-full max-w-4xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl">
-        <!-- Graphic Section -->
-        <div class="gradient-bg md:w-2/5 p-12 flex flex-col items-center justify-center text-center text-white relative overflow-hidden">
-            <div class="animate-float">
-                <img src="{{ url_for('static', filename='assets/health-icon.png') }}" class="w-32 h-32 mb-8" alt="Health Icon">
-            </div>
-            <h1 class="text-4xl font-bold mb-4">Welcome Back!</h1>
-            <p class="text-lg opacity-90">Empower your skin health journey with personalized insights</p>
-            <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml;utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M0 16h32v16H0z' fill='%23fff' fill-opacity='0.1'/></svg>')"></div>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen px-4">
+    
+    <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-2xl p-8 w-full max-w-3xl">
+        
+        <!-- Welcome Section -->
+        <div class="md:w-1/2 flex flex-col items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none text-center">
+            <h1 class="text-3xl md:text-4xl font-bold">Welcome To<br>SkInsight!</h1>
         </div>
+       
 
         <!-- Form Section -->
-        <div class="form-container md:w-3/5 bg-white p-12">
-            <div class="max-w-md mx-auto">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Member Login</h2>
-                <p class="text-gray-500 mb-8">Access your personalized dashboard</p>
+        <div class="md:w-1/2 p-8 w-full flex flex-col">
+            <h2 class="text-2xl font-semibold text-center text-gray-900">Log In</h2>
+            <p class="text-center mt-2 text-gray-600">
+                Don't have an account? 
+                <a href="/register" class="text-purple-600 font-semibold hover:underline">Register Here.</a>
+            </p>
 
-                <form class="space-y-6" action="/" method="post">
-                    <div class="input-group">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
-                        <div class="relative">
-                            <input type="text" name="username" 
-                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                    placeholder="Enter username">
-                            <i class="fas fa-user absolute right-4 top-4 text-gray-400"></i>
-                        </div>
-                    </div>
+            <!-- OR Separator -->
+            <div class="flex items-center gap-4 my-6">
+                <div class="flex-1 h-px bg-gray-300"></div>
+                <span class="text-gray-500 text-sm font-semibold">OR</span>
+                <div class="flex-1 h-px bg-gray-300"></div>
+            </div>
 
-                    <div class="input-group">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                        <div class="relative">
-                            <input type="password" name="password" 
-                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                    placeholder="••••••••">
-                            <i class="fas fa-lock absolute right-4 top-4 text-gray-400"></i>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input id="remember-me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
-                        </div>
+            <!-- Form -->
+            <form action="/" method="post" class="flex flex-col gap-4">
+                <input type="text" name="username" placeholder="Enter Your Username" class="border rounded-lg px-4 py-3 w-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="password" name="password" placeholder="Enter Your Password" class="border rounded-lg px-4 py-3 w-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button type="submit" class="bg-green-700 text-white font-semibold py-3 rounded-lg hover:bg-green-800 transition">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
